@@ -1,2 +1,2 @@
-import Coderunner
+import tests.Coderunner
 
