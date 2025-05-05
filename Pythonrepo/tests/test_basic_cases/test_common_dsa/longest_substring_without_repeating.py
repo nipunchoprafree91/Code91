@@ -22,51 +22,40 @@ complexity: O(n^2)
 
 Use sets if  possible for brute force
 """
-
-teststring = "abcdbea"
+             #0123456
+teststring = "abcabcdbbcdefga"
 string_len = len(teststring)
-max_substring = ""
 
 def length_of_longest_substring(teststring: str) -> int:
     """
     Function to find the length of the longest substring without repeating characters.
-    Input:  s = "abcabcbb"
+    Input:  s = "abcabc"
     """
 
-    new_length = 0
-    new_substring = ""
-    max_length = len(teststring[0])
-    max_substring = teststring[0]
+    max_length = 0
+    max_substring = ""
 
-    for start_index in range(len(teststring)):
+    for start_index in range(string_len):
         print("Starting index is %s"% start_index)
 
-        for current_index in range (start_index , string_len):
+        for current_index in range (start_index, string_len):
             print("Current index is %d" %current_index)
 
-            next_index = current_index + 1
+            substring = teststring[start_index : current_index + 1]
+            next_char = teststring[current_index]
 
-            if next_index > string_len:
+            print("checking if element {} is in {}".format(next_char, substring))
+
+            if next_char in substring[:-1]:
                 break
 
-            if teststring[next_index] in teststring[start_index : current_index]:
-                new_length = len(teststring[start_index :current_index +1])
-                new_substring = teststring[start_index :current_index +1 ]
+            current_len = current_index - start_index +1
 
-                print("Coming into inner loop Max old lenght was :%d" %max_length)
-
-                if max_length < new_length:
-                    max_length = new_length
-                    max_substring = new_substring
-
-                print("Inner loop for index %s New length is %d of string: %s" % (start_index, new_length, new_substring))
-                print("Inner loop for index %s Max length is %d of string: %s" % (start_index, max_length, max_substring))
-                break
-
-        print("outer loop for index %s New length is %d of string: %s\n\n" % (start_index, max_length, max_substring))
-        continue
+            if max_length < current_len:
+                max_length = current_len
+                max_substring = substring
 
     return max_length, max_substring
 
 max_length, max_substring = length_of_longest_substring(teststring)
-print("Max lenght is %d of substring %s"% (max_length, max_substring))
+print("Max length is %d of substring %s"% (max_length, max_substring))
