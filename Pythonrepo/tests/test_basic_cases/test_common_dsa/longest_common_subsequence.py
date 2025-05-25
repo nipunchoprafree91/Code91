@@ -2,7 +2,7 @@
 str1 = "abxyzmnopqr"
 str2 = "mnopqrxyzfg"
 
-find the length of the longest common contiguous substring between two input strings
+Find the length of the longest common contiguous substring between two input strings
 """
 
 
