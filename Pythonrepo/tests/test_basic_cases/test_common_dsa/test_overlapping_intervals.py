@@ -12,8 +12,13 @@ def test_merge_intervals(intervals):
 
     for current in intervals[1:]:
         #Current gets us the next array to be compared with the merged intervals lets say next current is [2, 6]
-        last  = merged[-1]#  merged[-1] gets is -3 last element
-        if current <= last:
+
+        last  = merged[-1]  #merged[-1] gets is 3 last element
+        if current[0] < last:
+            # Dsicard the  current intervak ad move on
+
+            # If the last end of merged interval is less than the start of current interval, no overlap
+            merged.append(current
 
 
 test_merge_intervals(intervals)
