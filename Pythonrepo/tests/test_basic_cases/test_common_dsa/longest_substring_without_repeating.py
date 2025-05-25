@@ -7,7 +7,9 @@ Explanation: The longest substrings without repeating characters are "abc", each
 Usage: Arrays, hashmaps, sliding window
 Approach: Use a sliding window technique to track the characters and their indices.
 
-Keep in mind storing the substrings in hash maps eats up extra memory.we only care about the length of the longest substring.
+Keep in mind storing the substrings in hash maps eats up extra memory.we only care about the length
+of the longest substring.
+
 # Time Complexity: O(n)
 
 Hint: Use enumerate function to get the index and character in the string.
@@ -20,11 +22,8 @@ complexity: O(n^2)
 Use sets if  possible for brute force
 """
 
-
 print("\n\nMethod1 - Brute Force - O(n\u00b2)")
 
-
-#              #0123456
 test_string = "abcdbea"
 string_len = len(test_string)
 
@@ -62,10 +61,15 @@ print("Max length is %d of substring %s"% (max_length, max_substring))
 
 
 
-"""
-Method2 - sliding window - O(n)
-"""
+
+#Method2 - sliding window - O(n)
+
 def longest_subsequence_sliding():
+    """
+    Function to find the length of the longest substring without repeating characters.
+    """
+
+
     print("\n\n Method2 - sliding window - O(n)")
 
     seen = set()
@@ -91,12 +95,18 @@ longest_subsequence_sliding()
 
 
 
-"""
-Method 3: Last Seen Index with HashMap (Same logic, different thinking)
-"""
+# Method 3: Last Seen Index with HashMap (Same logic, different thinking)
+# starts with 0, checks a in map and index of a in map, first time not
+# found so inserts it via last_seen[char] = i
+
+
 print("\n\n Last Seen Index with HashMap (Same logic, different thinking")
 
 def longest_unique_with_last_seen(s):
+    """
+    Function to find the length of the longest substring without repeating characters Hashmap.
+    """
+
     last_seen = {}
     start = 0
     max_len = 0
@@ -104,14 +114,18 @@ def longest_unique_with_last_seen(s):
 
     for i, char in enumerate(s):
         if char in last_seen and last_seen[char] >= start:
-            start = last_seen[char] + 1
             print("start is %s"%char)
+            start = last_seen[char] + 1
+
+
         last_seen[char] = i
         print("Last seen: %s"%last_seen)
 
         if max_len < i - start + 1:
+            print("start is %s"%s[start])
             max_len = i - start + 1
             max_substring = s[start:i+1]
+
 
     print("Max length is %d of substring '%s'" % (max_len, max_substring))
 

@@ -26,6 +26,9 @@ def Check_act_sub(str1ind, str2ind, str1, str2 , lenr, maxlen):
 
 
 def longest_subsequence(string1, string2):
+    """
+    Function to find the length of the longest common contiguous substring
+    """
     maxlen = 0
     prevmax = 0
 
