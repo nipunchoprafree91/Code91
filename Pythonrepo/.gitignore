@@ -1,2 +1,8 @@
 *.pyc
 /*.pyc
+
+Pythonrepo.code-workspace
+.vscode/
+
+../code91.code-workspace
+
